@@ -1,8 +1,0 @@
-[ssh]
-enabled = true
-filter = sshd
-port    = 2222
-bantime = 600
-findtime = 120
-maxretry = 5
-logpath = /var/log/auth.log
