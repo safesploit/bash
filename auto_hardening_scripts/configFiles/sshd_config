@@ -1,0 +1,55 @@
+ListenAddress 127.0.0.1
+ListenAddress *
+Port 2222
+HostKey /etc/ssh/ssh_host_rsa_key
+#HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Logging
+SyslogFacility AUTH
+LogLevel VERBOSE
+UseDNS No
+
+# Authentication:
+LoginGraceTime 120
+PermitRootLogin yes
+PermitEmptyPasswords no
+#StrictModes yes
+MaxAuthTries 6
+IgnoreRhosts yes
+HostbasedAuthentication No
+
+# Sessions
+MaxSessions 10
+MaxStartups 10
+X11Forwarding No
+PrintLastLog yes
+
+# Ideal timeout
+ClientAliveInterval 600
+ClientAliveCountMax 0
+
+# PubkeyAuthentication can be used in conjunction with RevokedKeys
+PubkeyAuthentication yes
+
+# The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
+# but this is overridden so installations will only check .ssh/authorized_keys
+AuthorizedKeysFile      .ssh/authorized_keys
+
+# Port Forwarding
+
+AllowTcpForwarding no
+AllowStreamLocalForwarding no
+GatewayPorts no
+PermitTunnel no
+
+UsePAM yes
+
+Banner /opt/ssh_banner
+
+# Enhanced Authentication
+
+KexAlgorithms diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp521
+Ciphers aes256-ctr,aes128-ctr
+#CTR is preferred over CBC for OpenSSH exclusive, see: 'Plaintext Recovery Attacks Against SSH'
+MACs hmac-sha2-512,hmac-sha2-256
+AllowUsers root safesploit

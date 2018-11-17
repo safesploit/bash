@@ -1,0 +1,5 @@
+#Delete when done, as this is not a Bash script.
+
+apt install wavemon   (Does not support graph)
+apt install kismon    (Supports graph, but not intended for mapping your own network)
+apt install iwscanner (Supports a small graph, ideal with tweaking).
